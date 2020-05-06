@@ -65,11 +65,11 @@ const generateTemp = todo =>{
             </li>
    `;  
    list.innerHTML += html;
-   localStorage['list'] = list.innerHTML
+   localStorage[''] = list.innerHTML
 };
 
-if(localStorage['list']){
-   list.innerHTML = localStorage['list'];
+if(localStorage['']){
+   list.innerHTML = localStorage[''];
 }
 
 
@@ -130,7 +130,7 @@ list.addEventListener('click',e =>{
 
    if(e.target.tagName === 'I'){
       e.target.parentElement.remove();
-      localStorage['list'] = list.innerHTML
+      localStorage[''] = list.innerHTML
    }
 
 });
@@ -155,14 +155,16 @@ const retrieve = (term) =>{
    var filter, li, a, i, txtValue;
    filter = search.value.toUpperCase();
    li = list.getElementsByTagName("li");
+   
    for (i = 0; i < li.length; i++) {
       a = li[i].getElementsByTagName("span")[0];
+      console.log(a);
       txtValue = a.textContent || a.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
          li[i].style.display = "";
       } else {
          li[i].style.setProperty('display', 'none', 'important');
-
+         
       }
    }
 
